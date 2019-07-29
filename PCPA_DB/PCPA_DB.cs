@@ -70,7 +70,7 @@ namespace PCPA_DB
                 }
             }
         }
-      
+
         private void Min_OnExit(object sender, EventArgs e)
         {
             TextBox s = sender as TextBox;
