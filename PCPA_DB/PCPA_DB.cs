@@ -31,7 +31,6 @@ namespace PCPA_DB
             yrMax.Leave += Max_OnExit;
             projName.Leave += ProjName_OnExit;
             projNum.Leave += ProjNum_OnExit;
-            searchbttn.Click += SearchOnClick;
             countryDropdown.DropDown += Countrydd_OnDrop; // resets to no selection upon drop
             countryDropdown.DropDown += Citydd_OnDrop; // resets to no selection upon drop
             clientDropdown.DropDown += Clientdd_OnDrop;
@@ -46,11 +45,18 @@ namespace PCPA_DB
             costMin.Leave += Min_OnExit;
             costMax.Leave += Max_OnExit;
 
-            resultList.MouseDoubleClick += Result_OnDoubleClick;
-            resultList.SelectedValueChanged += Result_OnSelectChange;
+            searchbttn.Click += SearchOnClick;
+            resetbttn.Click += OnReset;
+
+            resultView.SelectedIndexChanged += Result_OnSelectChange;
+            resultView.MouseDoubleClick += Result_OnDoubleClick;
+            projInfo.Click += Info_OnClick;
+
             #endregion
 
-            using (StreamReader sr = new StreamReader(@"D:\REACH\PCPA_DB\PCPA_DB.csv"))
+            // set up stream so streamreader can access already opened, locked files
+            var stream = new FileStream(dbpath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+            using (StreamReader sr = new StreamReader(stream))
             {
                 int i = 0;
                 string l;
@@ -69,7 +75,9 @@ namespace PCPA_DB
                     if (!clientDropdown.Items.Contains(client)) clientDropdown.Items.Add(client);
                 }
             }
+            stream.Close(); // always remember to close streams
         }
+
 
         private void Min_OnExit(object sender, EventArgs e)
         {
@@ -258,14 +266,14 @@ namespace PCPA_DB
             }
         }
 
-        // main search method
+        // main search event handler and reset form
         private void SearchOnClick(object sender, EventArgs e)
         {
             /*var pop = new Popup();
             pop.ShowDialog();*/
 
-            resultList.Items.Clear(); // clear result list
-            picBox.ImageLocation = ""; // clear preview image
+            resultView.Items.Clear(); // clear result list
+            picBox.ImageLocation = @"N:\0000_REACH\Blue-logo.png"; // clear preview image
             
             foreach (string k in csvdict.Keys)
             {
@@ -352,35 +360,73 @@ namespace PCPA_DB
 
 
                 // add to result if not exited by now
-                resultList.Items.Add(string.Join(" _ ", attrs.Take(4)));
+                resultView.Items.Add(new ListViewItem(new string[] { attrs[1], attrs[2]}));
             }
+
+        }
+        private void OnReset(object sender, EventArgs e)
+        {
+            for (int i = 0; i < phaseCBlist.Items.Count; i++)
+                phaseCBlist.SetItemChecked(i, true);
+            for (int i = 0; i < programCBlist.Items.Count; i++)
+                programCBlist.SetItemChecked(i, true);
+            yrMin.Text = "Min.";
+            hMin.Text = "Min.";
+            fhMin.Text = "Min.";
+            fcMin.Text = "Min.";
+            gfaMin.Text = "Min.";
+            costMin.Text = "Min.";
+            yrMax.Text = "Max.";
+            hMax.Text = "Max.";
+            fhMax.Text = "Max.";
+            fcMax.Text = "Max.";
+            gfaMax.Text = "Max.";
+            costMax.Text = "Max.";
 
         }
 
         private void Result_OnSelectChange(object sender, EventArgs e)
         {
-            ListBox s = sender as ListBox;
-            string i = s.SelectedItem as string;
-            string k = i.Split(new string[] { " _ " }, StringSplitOptions.RemoveEmptyEntries)[1];
-            string pth = csvdict[k].Last();
-            try
-            {
-                picBox.ImageLocation = pth;
-            }
+            ListView s = sender as ListView;
+            string num;
+            if (s.SelectedItems.Count == 0)
+                return;
+            else
+                num = s.SelectedItems[0].SubItems[0].Text;
+            string pth = csvdict[num].Last();
+            try { picBox.ImageLocation = pth; }
             catch { }
         }
 
         private void Result_OnDoubleClick (object sender, MouseEventArgs e)
         {
-            ListBox s = sender as ListBox;
-            int i = s.IndexFromPoint(e.Location);
-            if (i != ListBox.NoMatches)
-            {
-
-            }
+            ListView s = sender as ListView;
+            ListViewHitTestInfo hit = s.HitTest(e.Location);
+            try { MessageBox.Show(hit.SubItem.Text); }
+            catch (NullReferenceException) { }
         }
 
-        #region fields
+        private void Info_OnClick(object sender, EventArgs e)
+        {
+            var pop = new Popup(this);
+            pop.ShowDialog();
+        }
+
+        private void OnAppClose(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        // properties
+        public string DBpath
+        {
+            get { return dbpath; }
+            set { dbpath = value; }
+        }
+
+        // fields
+        #region
+        protected string dbpath = @"N:\0000_REACH\PCPA_DB\PCPA_DB.csv";
         protected int yrmin;
         protected int yrmax;
         protected string projnum="";
@@ -398,7 +444,8 @@ namespace PCPA_DB
         protected int costmin;
         protected int costmax;
         protected Dictionary<string, string[]> csvdict = new Dictionary<string, string[]>();
-        
+
         #endregion
+
     }
 }

@@ -64,7 +64,6 @@ namespace PCPA_DB
             this.projNameLabel = new System.Windows.Forms.Label();
             this.countryLabel = new System.Windows.Forms.Label();
             this.cityLabel = new System.Windows.Forms.Label();
-            this.resultList = new System.Windows.Forms.ListBox();
             this.clientLabel = new System.Windows.Forms.Label();
             this.hLabel = new System.Windows.Forms.Label();
             this.fhLabel = new System.Windows.Forms.Label();
@@ -74,6 +73,15 @@ namespace PCPA_DB
             this.phaseLabel = new System.Windows.Forms.Label();
             this.programLabel = new System.Windows.Forms.Label();
             this.picBox = new System.Windows.Forms.PictureBox();
+            this.resultView = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.projPlan = new System.Windows.Forms.Button();
+            this.projSect = new System.Windows.Forms.Button();
+            this.projRender = new System.Windows.Forms.Button();
+            this.projInfo = new System.Windows.Forms.Button();
+            this.resetbttn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox)).BeginInit();
             this.SuspendLayout();
@@ -123,6 +131,7 @@ namespace PCPA_DB
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.resetbttn);
             this.panel1.Controls.Add(this.programCBlist);
             this.panel1.Controls.Add(this.phaseCBlist);
             this.panel1.Controls.Add(this.costMax);
@@ -153,7 +162,7 @@ namespace PCPA_DB
             this.panel1.Controls.Add(this.tildaLabel0);
             this.panel1.Location = new System.Drawing.Point(122, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(145, 484);
+            this.panel1.Size = new System.Drawing.Size(145, 486);
             this.panel1.TabIndex = 5;
             // 
             // programCBlist
@@ -349,9 +358,9 @@ namespace PCPA_DB
             // 
             // searchbttn
             // 
-            this.searchbttn.Location = new System.Drawing.Point(8, 458);
+            this.searchbttn.Location = new System.Drawing.Point(8, 463);
             this.searchbttn.Name = "searchbttn";
-            this.searchbttn.Size = new System.Drawing.Size(75, 23);
+            this.searchbttn.Size = new System.Drawing.Size(60, 23);
             this.searchbttn.TabIndex = 10;
             this.searchbttn.Text = "search";
             this.searchbttn.UseVisualStyleBackColor = true;
@@ -414,14 +423,6 @@ namespace PCPA_DB
             this.cityLabel.Size = new System.Drawing.Size(24, 13);
             this.cityLabel.TabIndex = 8;
             this.cityLabel.Text = "City";
-            // 
-            // resultList
-            // 
-            this.resultList.FormattingEnabled = true;
-            this.resultList.Location = new System.Drawing.Point(273, 388);
-            this.resultList.Name = "resultList";
-            this.resultList.Size = new System.Drawing.Size(406, 108);
-            this.resultList.TabIndex = 9;
             // 
             // clientLabel
             // 
@@ -497,6 +498,9 @@ namespace PCPA_DB
             // 
             // picBox
             // 
+            this.picBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picBox.ImageLocation = "N:\\0000_REACH\\Blue-logo.png";
+            this.picBox.InitialImage = global::PCPA_DB.Properties.Resources.REACH_LOGO;
             this.picBox.Location = new System.Drawing.Point(273, 25);
             this.picBox.Name = "picBox";
             this.picBox.Size = new System.Drawing.Size(406, 356);
@@ -504,11 +508,92 @@ namespace PCPA_DB
             this.picBox.TabIndex = 18;
             this.picBox.TabStop = false;
             // 
+            // resultView
+            // 
+            this.resultView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3});
+            this.resultView.FullRowSelect = true;
+            this.resultView.GridLines = true;
+            this.resultView.Location = new System.Drawing.Point(273, 388);
+            this.resultView.MultiSelect = false;
+            this.resultView.Name = "resultView";
+            this.resultView.Size = new System.Drawing.Size(325, 110);
+            this.resultView.TabIndex = 19;
+            this.resultView.UseCompatibleStateImageBehavior = false;
+            this.resultView.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "ProjectNumber";
+            this.columnHeader1.Width = 85;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "ProjectName";
+            this.columnHeader2.Width = 140;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "ProjectLead";
+            this.columnHeader3.Width = 74;
+            // 
+            // projPlan
+            // 
+            this.projPlan.Location = new System.Drawing.Point(604, 388);
+            this.projPlan.Name = "projPlan";
+            this.projPlan.Size = new System.Drawing.Size(75, 23);
+            this.projPlan.TabIndex = 20;
+            this.projPlan.Text = "Plan";
+            this.projPlan.UseVisualStyleBackColor = true;
+            // 
+            // projSect
+            // 
+            this.projSect.Location = new System.Drawing.Point(604, 417);
+            this.projSect.Name = "projSect";
+            this.projSect.Size = new System.Drawing.Size(75, 23);
+            this.projSect.TabIndex = 21;
+            this.projSect.Text = "Section";
+            this.projSect.UseVisualStyleBackColor = true;
+            // 
+            // projRender
+            // 
+            this.projRender.Location = new System.Drawing.Point(604, 446);
+            this.projRender.Name = "projRender";
+            this.projRender.Size = new System.Drawing.Size(75, 23);
+            this.projRender.TabIndex = 22;
+            this.projRender.Text = "Render";
+            this.projRender.UseVisualStyleBackColor = true;
+            // 
+            // projInfo
+            // 
+            this.projInfo.Location = new System.Drawing.Point(604, 475);
+            this.projInfo.Name = "projInfo";
+            this.projInfo.Size = new System.Drawing.Size(75, 23);
+            this.projInfo.TabIndex = 23;
+            this.projInfo.Text = "Information";
+            this.projInfo.UseVisualStyleBackColor = true;
+            // 
+            // resetbttn
+            // 
+            this.resetbttn.Location = new System.Drawing.Point(73, 463);
+            this.resetbttn.Name = "resetbttn";
+            this.resetbttn.Size = new System.Drawing.Size(60, 23);
+            this.resetbttn.TabIndex = 33;
+            this.resetbttn.Text = "reset";
+            this.resetbttn.UseVisualStyleBackColor = true;
+            // 
             // PCPA_DB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(691, 509);
+            this.Controls.Add(this.projInfo);
+            this.Controls.Add(this.projRender);
+            this.Controls.Add(this.projSect);
+            this.Controls.Add(this.projPlan);
+            this.Controls.Add(this.resultView);
             this.Controls.Add(this.picBox);
             this.Controls.Add(this.programLabel);
             this.Controls.Add(this.phaseLabel);
@@ -518,7 +603,6 @@ namespace PCPA_DB
             this.Controls.Add(this.fhLabel);
             this.Controls.Add(this.hLabel);
             this.Controls.Add(this.clientLabel);
-            this.Controls.Add(this.resultList);
             this.Controls.Add(this.cityLabel);
             this.Controls.Add(this.countryLabel);
             this.Controls.Add(this.projNameLabel);
@@ -551,7 +635,6 @@ namespace PCPA_DB
         private System.Windows.Forms.Label countryLabel;
         private System.Windows.Forms.Label cityLabel;
         private System.Windows.Forms.Button searchbttn;
-        private System.Windows.Forms.ListBox resultList;
         private System.Windows.Forms.CheckBox projB;
         private System.Windows.Forms.CheckBox projA;
         private System.Windows.Forms.TextBox hMin;
@@ -581,6 +664,15 @@ namespace PCPA_DB
         private System.Windows.Forms.Label phaseLabel;
         private System.Windows.Forms.Label programLabel;
         private System.Windows.Forms.PictureBox picBox;
+        private System.Windows.Forms.ListView resultView;
+        protected System.Windows.Forms.ColumnHeader columnHeader1;
+        protected System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.Button projPlan;
+        private System.Windows.Forms.Button projSect;
+        private System.Windows.Forms.Button projRender;
+        private System.Windows.Forms.Button projInfo;
+        private System.Windows.Forms.Button resetbttn;
     }
 }
 

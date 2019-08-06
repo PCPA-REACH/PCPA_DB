@@ -1,0 +1,30 @@
+year,project number,project name,country,city,client name,roof height,feature height,floor count,GFA,cost,status,program,exterior
+2011,A1106,NingBo,China,Ningbo,Evergrande,422,450,88,221000,0,DD,office|hotel|service apt.,D:\REACH\PCPA_DB\ningbo.png
+2016,A1216,Baosteel Guangzhou,China,Guangzhou,Baosteel,149,156,29,76170,0,Built,office,D:\REACH\PCPA_DB\baosteelGZ.png
+2016,A1207,Baosteel SH,China,Shanghai,Baosteel,119,125,24,55055,0,Built,office,D:\REACH\PCPA_DB\baosteelSH.png
+2012,A1317,H55,China,Shanghai,SH Int'l Port Group,240,263,50,94505,0,Built,office|retail,
+2018,B31826,COLI SH Putuo,China,Shanghai,China Overseas,221,230,47,108000,0,BD,office|retail,D:\REACH\PCPA_DB\coliputuo.png
+2018,A1302,NorthPoint HK,Hongkong,Hongkong,Henderson,105,110,23,31660,0,Built,office,D:\REACH\PCPA_DB\northpoint.png
+2014,A1406,Taikang,China,Beijing,Taikang,216,224,45,144000,0,CA,office,D:\REACH\PCPA_DB\taikang.png
+2018,B31809,Chengdu677,China,Chengdu,China Overseas,578,610,116,400000,0,BD,office,D:\REACH\PCPA_DB\chengdu677.png
+2013,A1311,Yinji,China,Zhengzhou,Silver Base Group,267,286,62,155620,0,SD,office|hotel,D:\REACH\PCPA_DB\yinji.png
+2013,A1320,Brightoil,China,Shenzhen,Brightoil,400,408,85,235000,0,PD,office|hotel,D:\REACH\PCPA_DB\brightoil.png
+2013,A1316,XJH center,China,Shanghai,Sun Hung Kai,337,370,69,0,0,CA,office|retail,D:\REACH\PCPA_DB\xjh.png
+2016,A1601,Trinity Place,USA,NYC,Trinity Real Estate,136,136,28,30822,0,CA,office|retail|service apt.,D:\REACH\PCPA_DB\trinity.png
+2018,A1809,Toronto,Canada,Toronto,Oxford,303,334,53,155477,0,SD,office|retail,D:\REACH\PCPA_DB\torontooxford.png
+2018,A1804,Alberni towers,Canada,Vancouver,Sun Hung Kai,131,134,38,17078,0,DD,service apt.|retail,D:\REACH\PCPA_DB\alberni.png
+2017,A1717,Texas Tower,USA,Houston,Hines,206,224,47,171870,0,CA,office,D:\REACH\PCPA_DB\block58.png
+2018,B31835,NHV Coliseum,USA,New Haven,city gov.,0,0,0,116667,0,BD,office|service apt.|retail|hotel,
+2011,A1107,C-tower,Mexico,Mexico City,,254,265,60,94489,0,On-hold,service apt.|hotel,
+2015,A0914,Vietcombank tower,Vietnam,Ho Chi Minh City,Vietcombank,170,205,35,71000,0,Built,office,D:\REACH\PCPA_DB\vietcom.png
+2017,A1714,City tower one,UAE,Dubai,H&H,350,358,81,170310,0,DD,office|service apt.|retail,D:\REACH\PCPA_DB\citytowerone.png
+2014,B31428,Mandarin oriental,South Korea,Seoul,Mandarin oriental,143,163,38,56241,0,BD,hotel|service apt.|retail,D:\REACH\PCPA_DB\mo.png
+2016,B31616,Optical valley,China,Wuhan,Greenland Group,201,201,46,54320,0,BD,hotel|service apt.|retail,D:\REACH\PCPA_DB\optical.png
+2019,A1308,Residences by Armani,USA,Miami,Armani,191,198,56,96557,0,CA,service apt.,D:\REACH\PCPA_DB\armani.png
+2020,A1517,Wolf point south,USA,Chicago,Hines,262,270,71,118916,0,CA,office|retail,D:\REACH\PCPA_DB\wolfpointS.png
+2017,A1029,Capital place,Indonesia,Jakarta,PT Rajawali,215,218,48,109268,0,Built,office|hotel,D:\REACH\PCPA_DB\jakarta.png
+2016,A1611,Parcel F,USA,San Francisco,Hines,270,274,62,102000,0,DD,office|service apt.|retail|hotel,D:\REACH\PCPA_DB\parcelF.png
+2018,A1820,WPB Tent,USA,West Palm Beach,Cohen Brothers,103,103,26,51097,0,PD,office|retail,D:\REACH\PCPA_DB\westpalm.png
+2017,A1305,One West End,USA,NYC,Silverstein,156,156,41,87350,0,Built,service apt.|retail,D:\REACH\PCPA_DB\onewestend.png
+2017,A1314,FMC Tower,USA,Philadelphia,Brandywine Realty Trust,214,224,47,77000,0,Built,service apt.|office|retail,D:\REACH\PCPA_DB\fmc.png
+2017,A1703,KerrySZ,China,Shenzhen,Shangri-La,90,96,23,30000,0,DD,hotel,D:\REACH\PCPA_DB\kerrySZ.png

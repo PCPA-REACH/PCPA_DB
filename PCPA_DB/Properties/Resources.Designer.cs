@@ -69,5 +69,28 @@ namespace PCPA_DB.Properties {
                 return ((System.Drawing.Icon)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to year,project number,project name,country,city,client name,roof height,feature height,floor count,GFA,cost,status,program,exterior
+        ///2011,A1106,NingBo,China,Ningbo,Evergrande,422,450,88,221000,0,DD,office|hotel|service apt.,D:\REACH\PCPA_DB\ningbo.png
+        ///2016,A1216,Baosteel Guangzhou,China,Guangzhou,Baosteel,149,156,29,76170,0,Built,office,D:\REACH\PCPA_DB\baosteelGZ.png
+        ///2016,A1207,Baosteel SH,China,Shanghai,Baosteel,119,125,24,55055,0,Built,office,D:\REACH\PCPA_DB\baosteelSH.png
+        ///2012,A1317,H55,China,Shanghai [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string PCPA_DB {
+            get {
+                return ResourceManager.GetString("PCPA_DB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap REACH_LOGO {
+            get {
+                object obj = ResourceManager.GetObject("REACH_LOGO", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
